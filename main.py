@@ -57,11 +57,23 @@ def decrypt(ciphertext, key):
     plaintext = ''.join([chr(char + ord('a')).upper() for char in plaintext])
     return plaintext
 
-# Przykładowe użycie:
-#plaintext = input("Podaj tekst: ")
-encrypted_text = input("Podaj tekst: ")
-key = input("Podaj klucz: ")
-#encrypted_text = encrypt(plaintext, key)
-#print("Zaszyfrowany tekst:", encrypted_text)
-decrypted_text = decrypt(encrypted_text, key)
-print("Odszyfrowany tekst:", decrypted_text)
+# Funkcja wyboru opcji
+def main():
+    choice = input("Wybierz opcję: 1 = Szyfrowanie, 2 = Deszyfrowanie: ")
+
+    if choice == '1':
+        plaintext = input("Podaj tekst do zaszyfrowania: ")
+        key = input("Podaj klucz: ")
+        encrypted_text = encrypt(plaintext, key)
+        print("Zaszyfrowany tekst:", encrypted_text)
+    elif choice == '2':
+        ciphertext = input("Podaj tekst do odszyfrowania: ")
+        key = input("Podaj klucz: ")
+        decrypted_text = decrypt(ciphertext, key)
+        print("Odszyfrowany tekst:", decrypted_text)
+    else:
+        print("Nieprawidłowy wybór. Spróbuj ponownie.")
+
+# Uruchomienie programu
+if __name__ == "__main__":
+    main()
